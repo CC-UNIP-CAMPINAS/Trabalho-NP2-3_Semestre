@@ -190,13 +190,21 @@ public class Rendimento {
 	
 	@Override
 	public String toString() {
-		System.out.println("NP1: " + NP1.toString());
-		System.out.println("NP2: "+ NP2.toString());
-		System.out.println("Exame: "+ exame.toString());
-		System.out.println("Reposição: " + reposicao.toString());
-		System.out.println("Média: " + media.toString());
-		if(aprovado) System.out.println("Aprovado: SIM\n");
-		else System.out.println("Aprovado: NÃO\n");
-		return "";
-	}
+		if(aprovado) { 
+			return "NP1: " + NP1.toString() + 
+					"\nNP2: " + NP2.toString() + 
+					"\nExame: "+ exame.toString() + 
+					"\nReposição: " + reposicao.toString() + 
+					"\nMédia: " + media.toString() + 
+					"\nAprovado: SIM\n";
+		}
+		else {
+			return "NP1: " + NP1.toString() + 
+					"\nNP2: " + NP2.toString() + 
+					"\nExame: "+ exame.toString() + 
+					"\nReposição: " + reposicao.toString() + 
+					"\nMédia: " + media.toString() + 
+					"\nAprovado: NÂO\n";
+			}
+		}
 }

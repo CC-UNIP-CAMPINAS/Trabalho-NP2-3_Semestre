@@ -18,48 +18,56 @@ public class Cadastro implements Iterable<Curso> {
 	}
 	
 	public static String listaCursos() {
+		StringBuilder storage = new StringBuilder();
+
 		for(Curso curso : cursos) {
-			System.out.println(curso);
+			storage.append("\n"+curso);
 		}
 		
-		return null;
+		return storage.toString();
 	}
 	
 	public static String listaAlunos() {
+		StringBuilder storage = new StringBuilder();
+
 		for(Aluno aluno : alunos) {
-			System.out.println(aluno);
+			storage.append("\n"+aluno);
 
 		}
 		
-		return null;
+		return storage.toString();
 	}
 	
 	public static String listaRendimentos() {
+		StringBuilder storage = new StringBuilder();
+		
 		for(Curso curso : cursos) {
-			System.out.println(curso);
+			storage.append(curso.toString());
 			
 			for(Rendimento rendimento : rendimentos) {
 				
 				if(curso.getNome().equals(rendimento.getCurso().getNome()) ) {
-					System.out.println(rendimento);
+					storage.append(rendimento.toString());
 				}
 			}
 		}
 		
-		return null;
+		return storage.toString();
 	}
 	
 	@Override
 	public String toString() {
+		StringBuilder storage = new StringBuilder();
 		
-		listaRendimentos();
+		storage.append("\nAlunos");
+		storage.append(listaAlunos());
 		
-		System.out.println("CURSOS DADOS: ");
-		for(Curso cursos : cursos) {
-			System.out.println(cursos.getNome());
-		}
+		storage.append("\nCursos");
+		storage.append(listaCursos());
 		
+		storage.append("\nRendimentos");
+		storage.append(listaRendimentos());
 		
-		return ""; 
+		return storage.toString();
 	}
 }

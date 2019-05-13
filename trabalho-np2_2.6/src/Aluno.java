@@ -19,9 +19,6 @@ public class Aluno {
 	
 	@Override
 	public String toString() {
-		System.out.println("Nome aluno: " + this.nome);
-		System.out.println("ID aluno: " + this.id);
-		System.out.println();
-		return "";
+		return "\nNome aluno: " + this.nome + "\nID aluno: " + this.id;
 	}
 }

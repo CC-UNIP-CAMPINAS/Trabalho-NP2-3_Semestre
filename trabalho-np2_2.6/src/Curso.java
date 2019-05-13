@@ -45,11 +45,7 @@ public class Curso {
 	
 	@Override
 	public String toString() {
-		System.out.println("Nome: " + this.getNome());
-		System.out.println("Nivel: " + this.getGraduacao());
-		System.out.println("Ano: " + this.getAno());
-		System.out.println();
-		return "";
+		return "\nNome: " + this.getNome() + "\nNivel: " + this.getGraduacao() + "\nAno: " + this.getAno();
 	}
 	
 	@Override

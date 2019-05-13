@@ -20,6 +20,9 @@ public class TesteMenu {
         // Variáveis diversas do sistema
         String menu1;
         
+        //Carrega o programa na primeira vez
+        Carregar.carregar();
+        
 		// Inicio do menu
         do {
         	System.out.println();
@@ -40,10 +43,11 @@ public class TesteMenu {
                  
                         switch (Integer.parseInt(menu1)) {
                         case 1:
-                        	Cadastro.listaCursos();
+                        	System.out.println(Cadastro.listaCursos());
                             break;
+                            
                         case 2:
-                        	Cadastro.listaAlunos();
+                        	System.out.println(Cadastro.listaAlunos());
                             break;
                             
                         case 3:
@@ -54,9 +58,9 @@ public class TesteMenu {
                             
                             for(Rendimento rendimento : Cadastro.rendimentos) {
                             	if(rendimento.getAluno().getId().equals(id)) {
-                            		rendimento.getAluno().toString();
-                            		rendimento.getCurso().toString();
-                            		rendimento.toString();
+                            		System.out.println(rendimento.getAluno());
+                            		System.out.println(rendimento.getCurso());
+                            		System.out.println(rendimento);
                             	}
                             }
                             break;
@@ -78,9 +82,9 @@ public class TesteMenu {
                             	if(rendimento.getCurso().getNome().equals(nome) 
                             			&& rendimento.getCurso().getNivel() == nivel 
                             			&& rendimento.getCurso().getAno() == aAno) {
-                            		rendimento.getCurso().toString();
-                            		rendimento.getAluno().toString();
-                            		rendimento.toString();
+                            		System.out.println(rendimento.getCurso());
+                            		System.out.println(rendimento.getAluno());
+                            		System.out.println(rendimento);
                             	}
                             }
                         	
