@@ -1,5 +1,10 @@
 # Trabalho-NP2-3_Semestre
 
+Versão 2.6.1 Mazzoni Edition:
+
+Alteração dos metodos toString de todas as classes e concentrando todos eles no toString da classe
+Cadastro;
+
 Versão 2.6:
 
 Alteração da classe Notas para modular um único valor de nota;
