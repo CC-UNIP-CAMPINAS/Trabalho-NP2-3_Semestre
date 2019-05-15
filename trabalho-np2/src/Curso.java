@@ -2,12 +2,12 @@
 public class Curso {
 
 	private String nome;
-	private boolean graduacao;
+	private boolean nivel;
 	int ano;
 	
 	public Curso (String aNome, boolean aGraduacao, int aAno) {
 		nome = aNome;
-		graduacao = aGraduacao;
+		nivel = aGraduacao;
 		ano = aAno;
 	}
 	
@@ -27,11 +27,11 @@ public class Curso {
 		this.ano = ano;
 	}
 	public boolean getNivel() {
-		return graduacao;
+		return nivel;
 	}
 	
 	public String getGraduacao() {
-		if(graduacao) {
+		if(nivel) {
 			return "graduacao";
 		}
 		else {
@@ -40,7 +40,7 @@ public class Curso {
 	}
 	
 	public String toNomeArquivo() {
-		return this.nome + "_" + ((graduacao)?"GRADUACAO":"POS_GRADUACAO") + "_" + String.valueOf(ano)  + ".csv";
+		return this.nome + "_" + ((nivel)?"GRADUACAO":"POS_GRADUACAO") + "_" + String.valueOf(ano)  + ".csv";
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class Curso {
 		Curso c = (Curso) o;
 		
 		return nome.equals(c.nome) 
-				&& Boolean.compare(graduacao, c.graduacao) == 0
+				&& Boolean.compare(nivel, c.nivel) == 0
 				&& Integer.compare(ano, c.ano) == 0;
 	}
 }
