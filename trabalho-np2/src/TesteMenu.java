@@ -1,16 +1,6 @@
 import java.util.Scanner;
 
 public class TesteMenu {
-	
-	class Menu1{
-		public static final int LISTAR_CURSOS = 1;
-		public static final int LISTAR_ALUNOS = 2;
-	}
-	
-	
-	
-	
-    static enum Menu{LISTAR_CURSOS, LISTAR_ALUNOS};
 
 	public static void main(String[] args) {
 		
