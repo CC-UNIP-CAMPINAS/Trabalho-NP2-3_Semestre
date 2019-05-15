@@ -17,7 +17,7 @@ public class Rendimento {
 		NP2 = new Notas(np2);
 		exame = new Notas(aExame);
 		reposicao = new Notas(rep);
-		media = new Notas(media_cal());
+		media = new Notas(calculaMedia());
 	}
 	
 	public Rendimento(Aluno aluno, Curso curso, double np1, double np2, double rep, double aExame, double med, boolean aprov) {
@@ -72,7 +72,7 @@ public class Rendimento {
 		this.aprovado = aprov;
 	}
 	
-	public double media_cal() {
+	public double calculaMedia() {
 		double media = (NP1.getNota() + NP2.getNota())/2;
 		if(reposicao.getNota() >= NP1.getNota() || reposicao.getNota() >= NP2.getNota()) {
 			if(NP1.getNota() >= NP2.getNota()) {
