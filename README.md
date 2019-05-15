@@ -1,5 +1,13 @@
 # Trabalho-NP2-3_Semestre
 
+Versão 2.6.2
+
+Alterado números inteiros na classe Rendimento para ponto flutuantes;
+
+Alterado nome no método media_calc() e o atributo graduacao;
+
+Removido código de enum não usado;
+
 Versão 2.6.1 Mazzoni Edition:
 
 Alteração dos metodos toString de todas as classes e concentrando todos eles no toString da classe
