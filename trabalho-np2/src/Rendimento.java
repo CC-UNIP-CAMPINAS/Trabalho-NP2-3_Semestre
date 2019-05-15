@@ -76,15 +76,15 @@ public class Rendimento {
 		double media = (NP1.getNota() + NP2.getNota())/2;
 		if(reposicao.getNota() >= NP1.getNota() || reposicao.getNota() >= NP2.getNota()) {
 			if(NP1.getNota() >= NP2.getNota()) {
-				media = (NP1.getNota() + reposicao.getNota())/2;
+				media = (NP1.getNota() + reposicao.getNota())/2.0;
 				if(curso.getNivel()) {
-					if(media >= 7) {
+					if(media >= 7.0) {
 						this.aprovado = true;
 						return media;
 					}
 					else {
 						media = (exame.getNota() + media)/2;
-						if(media >= 5) {
+						if(media >= 5.0) {
 							this.aprovado = true;
 							return media;
 						}
@@ -95,15 +95,15 @@ public class Rendimento {
 					}
 				}
 				else {
-					if(media >= 5) {
+					if(media >= 5.0) {
 						this.aprovado = true;
 						return media;
 					}
 					else {
-						media = (media + exame.getNota())/2;
-						if(media >= 5) {
+						media = (media + exame.getNota())/2.0;
+						if(media >= 5.0) {
 							this.aprovado = true;
-							return 5;
+							return 5.0;
 						}
 						else {
 							this.aprovado = false;
@@ -113,15 +113,15 @@ public class Rendimento {
 				}
 			}
 			else {
-				media = (NP2.getNota() + reposicao.getNota())/2;
+				media = (NP2.getNota() + reposicao.getNota())/2.0;
 				if(curso.getNivel()) {
-					if(media >= 7) {
+					if(media >= 7.0) {
 						this.aprovado = true;
 						return media;
 					}
 					else {
-						media = (exame.getNota() + media)/2;
-						if(media >= 5) {
+						media = (exame.getNota() + media)/2.0;
+						if(media >= 5.0) {
 							this.aprovado = true;
 							return media;
 						}
@@ -132,15 +132,15 @@ public class Rendimento {
 					}
 				}
 				else {
-					if(media >= 5) {
+					if(media >= 5.0) {
 						this.aprovado = true;
 						return media;
 					}
 					else {
-						media = (media + exame.getNota())/2;
-						if(media >= 5) {
+						media = (media + exame.getNota())/2.0;
+						if(media >= 5.0) {
 							this.aprovado = true;
-							return 5;
+							return 5.0;
 						}
 						else {
 							this.aprovado = false;
@@ -152,13 +152,13 @@ public class Rendimento {
 		}
 		else {
 			if(curso.getNivel()) {
-				if(media >= 7) {
+				if(media >= 7.0) {
 					this.aprovado = true;
 					return media;
 				}
 				else {
-					media = (exame.getNota() + media)/2;
-					if(media >= 5) {
+					media = (exame.getNota() + media)/2.0;
+					if(media >= 5.0) {
 						this.aprovado = true;
 						return media;
 					}
@@ -169,15 +169,15 @@ public class Rendimento {
 				}
 			}
 			else {
-				if(media >= 5) {
+				if(media >= 5.0) {
 					this.aprovado = true;
 					return media;
 				}
 				else {
-					media = (media + exame.getNota())/2;
-					if(media >= 5) {
+					media = (media + exame.getNota())/2.0;
+					if(media >= 5.0) {
 						this.aprovado = true;
-						return 5;
+						return 5.0;
 					}
 					else {
 						this.aprovado = false;
