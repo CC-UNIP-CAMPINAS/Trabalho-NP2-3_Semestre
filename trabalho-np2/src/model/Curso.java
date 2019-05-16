@@ -1,3 +1,4 @@
+package model;
 
 public class Curso {
 
@@ -38,6 +39,14 @@ public class Curso {
 			return "pos_graduacao";
 		}
 	}
+	public String tipoGraduacao() {
+		if(nivel) {
+			return "Graduação";
+		}
+		else {
+			return "Pós Graduação";
+		}
+	}
 	
 	public String toNomeArquivo() {
 		return this.nome + "_" + ((nivel)?"GRADUACAO":"POS_GRADUACAO") + "_" + String.valueOf(ano)  + ".csv";
@@ -45,7 +54,7 @@ public class Curso {
 	
 	@Override
 	public String toString() {
-		return "\nNome: " + this.getNome() + "\nNivel: " + this.getGraduacao() + "\nAno: " + this.getAno();
+		return "\nNome: " + this.getNome() + "\nNivel: " + this.tipoGraduacao() + "\nAno: " + this.getAno();
 	}
 	
 	@Override

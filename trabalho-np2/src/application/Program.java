@@ -1,6 +1,15 @@
+package application;
 import java.util.Scanner;
 
-public class TesteMenu {
+import model.Aluno;
+import model.Curso;
+import model.Rendimento;
+import services.Cadastro;
+import services.Carregar;
+import services.Menu;
+import services.Salvar;
+
+public class Program {
 
 	public static void main(String[] args) {
 		
@@ -15,18 +24,7 @@ public class TesteMenu {
         
 		// Inicio do menu
         do {
-        	System.out.println();
-            System.out.println("\nEscolha uma opção a seguir:");
-            System.out.println("1 - Listar todos os cursos dados");
-            System.out.println("2 - Listar todos os alunos inscritos");
-            System.out.println("3 - Listar o histórico de um determinado aluno");
-            System.out.println("4 - Listar o relatório de rendimento de cada curso");
-            System.out.println("5 - Incluir um novo aluno");
-            System.out.println("6 - Incluir um novo curso");
-            System.out.println("7 - Incluir um novo rendimento");
-            System.out.println("8 - Salvar");
-            System.out.println("9 - Carregar");
-            System.out.println("Ou digite 0 para encerrar o programa");
+        	Menu.mostraMenu();
                              
 //            try {
             	menu1 = leia.next();
@@ -67,11 +65,10 @@ public class TesteMenu {
                             System.out.println("Graduação (true ou false): ");
                             nivel = leia.nextBoolean();
                             
-                       
+                            Curso cursoTemp = new Curso(nome, nivel, aAno);
+                            
                             for(Rendimento rendimento : Cadastro.rendimentos) {
-                            	if(rendimento.getCurso().getNome().equals(nome) 
-                            			&& rendimento.getCurso().getNivel() == nivel 
-                            			&& rendimento.getCurso().getAno() == aAno) {
+                            	if(rendimento.getCurso().equals(cursoTemp) ) {
                             		System.out.println(rendimento.getCurso());
                             		System.out.println(rendimento.getAluno());
                             		System.out.println(rendimento);
@@ -172,9 +169,6 @@ public class TesteMenu {
                             Salvar.salvar();
                             break;
                             
-                        case 9:
-                        	Carregar.carregar();
-                            break;
                         default: {
                         	System.out.println("Digite um valor válido");
                         }

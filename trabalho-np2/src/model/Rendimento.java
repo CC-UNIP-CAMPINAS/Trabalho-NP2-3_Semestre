@@ -1,4 +1,4 @@
-
+package model;
 public class Rendimento {
 	private Aluno aluno;
 	private Curso curso;
@@ -190,21 +190,18 @@ public class Rendimento {
 	
 	@Override
 	public String toString() {
-		if(aprovado) { 
-			return "NP1: " + NP1.toString() + 
-					"\nNP2: " + NP2.toString() + 
-					"\nExame: "+ exame.toString() + 
-					"\nReposição: " + reposicao.toString() + 
-					"\nMédia: " + media.toString() + 
-					"\nAprovado: SIM\n";
-		}
-		else {
-			return "NP1: " + NP1.toString() + 
-					"\nNP2: " + NP2.toString() + 
-					"\nExame: "+ exame.toString() + 
-					"\nReposição: " + reposicao.toString() + 
-					"\nMédia: " + media.toString() + 
-					"\nAprovado: NÂO\n";
-			}
-		}
+		String a = "NP1: " + NP1.toString() + 
+				   "\nNP2: " + NP2.toString() + 
+				   "\nExame: "+ exame.toString() + 
+				   "\nReposição: " + reposicao.toString() + 
+				   "\nMédia: " + media.toString();
+					if(aprovado) {
+						a += "\nAprovado: SIM\n";
+					}
+					else {
+						a += "\nAprovado: NÃO\n";
+					}
+		return a;
+	}
 }
+

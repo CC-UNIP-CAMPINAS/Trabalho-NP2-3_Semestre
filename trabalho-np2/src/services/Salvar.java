@@ -1,10 +1,20 @@
+package services;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
+import model.Aluno;
+import model.Curso;
+import model.Rendimento;
+
 public class Salvar {
 	public static void salvaCurso() {
-		File arquivoCurso = new File("cursos.csv");
+		String caminho = System.getProperty("user.dir");
+		caminho += File.separator + "trabalho-np2";
+		caminho += File.separator + "src";
+		caminho += File.separator + "dao";
+		caminho += File.separator + "cursos.csv";
+		File arquivoCurso = new File(caminho);
 		
 		try(BufferedWriter bwCurso = new BufferedWriter(new FileWriter(arquivoCurso))) {
 	
@@ -19,7 +29,12 @@ public class Salvar {
 	}
 	
 	public static void salvaAluno() {
-		File arquivoAluno = new File("alunos.csv");
+		String caminho = System.getProperty("user.dir");
+		caminho += File.separator + "trabalho-np2";
+		caminho += File.separator + "src";
+		caminho += File.separator + "dao";
+		caminho += File.separator + "alunos.csv";
+		File arquivoAluno = new File(caminho);
 		
 		try(BufferedWriter brAluno = new BufferedWriter(new FileWriter(arquivoAluno))) {
 			
@@ -37,9 +52,14 @@ public class Salvar {
 	
 	public static void salvaRendimento() {
 		for (Curso curso : Cadastro.cursos) {
-			File arquivoRendimento = new File(curso.toNomeArquivo());
+			String caminho = System.getProperty("user.dir");
+			caminho += File.separator + "trabalho-np2";
+			caminho += File.separator + "src";
+			caminho += File.separator + "dao";
+			caminho += File.separator + curso.toNomeArquivo();
+			File arquivoRendimento = new File(caminho);
 			
-			try(BufferedWriter bwRendimento = new BufferedWriter(new FileWriter(curso.toNomeArquivo()))) {
+			try(BufferedWriter bwRendimento = new BufferedWriter(new FileWriter(arquivoRendimento))) {
 				if(arquivoRendimento.exists()) {
 					arquivoRendimento.delete();
 				}

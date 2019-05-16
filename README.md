@@ -1,5 +1,26 @@
 # Trabalho-NP2-3_Semestre
 
+Versão 2.7
+
+Todas as classes foram portadas para os devidos pacotes:
+
+application: Fica o executavel do programa
+dao: ficam os arquivos csv
+model: Ficam todas as classes que servem de modelo para algum objeto
+service: fornecem algum servico no programa
+
+Exclusão do case '9' dentro da classe Program(chamada o metodo carregar)
+
+Alteração do nome da classe TesteMenu para Program;
+
+Alteração nas Classes Salvar e Carregar: há uma pequena alteração para o programa conseguir salvar e carregar de dentro
+da pasta dao 
+
+Criação da classe Menu com metodo que printa na tela todo o menu de opções
+
+Outras mini alterações para melhorar a leitura e performace
+
+
 Versão 2.6.2
 
 Alterado números inteiros na classe Rendimento para ponto flutuantes;
@@ -12,6 +33,7 @@ Versão 2.6.1 Mazzoni Edition:
 
 Alteração dos metodos toString de todas as classes e concentrando todos eles no toString da classe
 Cadastro;
+
 
 Versão 2.6:
 

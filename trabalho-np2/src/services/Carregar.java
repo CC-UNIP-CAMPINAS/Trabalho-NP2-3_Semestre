@@ -1,14 +1,23 @@
+package services;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import model.Aluno;
+import model.Curso;
+import model.Rendimento;
+
 public class Carregar {
 	
 	public static void carregaCurso() {
-		
-		try(Scanner scanner = new Scanner(new File("cursos.csv"))) {
+		String caminho = System.getProperty("user.dir");
+		caminho += File.separator + "trabalho-np2";
+		caminho += File.separator + "src";
+		caminho += File.separator + "dao";
+		caminho += File.separator + "cursos.csv";
+		try(Scanner scanner = new Scanner(new File(caminho))) {
 			while(scanner.hasNextLine()) {
 				String linha = scanner.nextLine();
 				Scanner linhaScanner = new Scanner(linha);
@@ -27,7 +36,12 @@ public class Carregar {
 	}
 	
 	public static void carregaAluno() {
-		try(Scanner scanner = new Scanner(new File("alunos.csv"))) {
+		String caminho = System.getProperty("user.dir");
+		caminho += File.separator + "trabalho-np2";
+		caminho += File.separator + "src";
+		caminho += File.separator + "dao";
+		caminho += File.separator + "alunos.csv";
+		try(Scanner scanner = new Scanner(new File(caminho))) {
 			while(scanner.hasNextLine()) {
 				String linha = scanner.nextLine();
 				Scanner linhaScanner = new Scanner(linha);
@@ -48,7 +62,13 @@ public static void carregaRendimento() {
 		String linha = "";
 		
 		for(Curso curso : Cadastro.cursos) {
-			try(BufferedReader brRendimento = new BufferedReader(new FileReader(curso.toNomeArquivo()));) {
+			String caminho = System.getProperty("user.dir");
+			caminho += File.separator + "trabalho-np2";
+			caminho += File.separator + "src";
+			caminho += File.separator + "dao";
+			caminho += File.separator + curso.toNomeArquivo();
+			
+			try(BufferedReader brRendimento = new BufferedReader(new FileReader(caminho));) {
 				while((linha = brRendimento.readLine()) != null) {	
 					String[] linhaRendimento = linha.split(";");				
 					Rendimento rendimento = new Rendimento(null, curso, 

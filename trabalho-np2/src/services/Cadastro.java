@@ -1,12 +1,17 @@
+package services;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import model.Aluno;
+import model.Curso;
+import model.Rendimento;
+
 public class Cadastro implements Iterable<Curso> {
 	
-	static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-	static ArrayList<Curso> cursos = new ArrayList<Curso>();
-	static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
+	public static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+	public static ArrayList<Curso> cursos = new ArrayList<Curso>();
+	public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 	
 	public void add(Rendimento rendimento) {
 		rendimentos.add(rendimento);
