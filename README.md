@@ -1,5 +1,9 @@
 # Trabalho-NP2-3_Semestre
 
+## Versão 2.7.1
+
+Foi adicionado um controle de erros para adicionar cursos e alunos
+
  ## Versão 2.7:
 
 Todas as classes foram portadas para os devidos pacotes:
