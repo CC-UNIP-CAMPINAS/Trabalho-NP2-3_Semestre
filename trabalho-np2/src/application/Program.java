@@ -86,7 +86,13 @@ public class Program {
                             	
                             System.out.println("Insira um nome: \n");
                             nomeAluno = leia.next();
-                            	
+                            
+                            for (Aluno aluno : Cadastro.alunos) {
+								if(aluno.getId().equals(id)) {
+									System.out.println("Aluno já existente");
+									break;
+								}
+							}    
                             Cadastro.alunos.add(new Aluno(id, nomeAluno));
                             break;
                             
@@ -104,7 +110,14 @@ public class Program {
                         	System.out.println("Insira um ano: \n");
                         	ano = leia.nextInt();
                         	
-                        	Cadastro.cursos.add(new Curso(nomeCurso, graduacao, ano));
+                        	Curso novoCurso = new Curso(nomeCurso, graduacao, ano);
+                        	
+                        	for (Curso curso : Cadastro.cursos) {
+								if(curso.equals(novoCurso)) {
+									System.out.println("Curso já existente");
+									break;
+								}
+							}
                         	
                             break;
                             
@@ -168,7 +181,8 @@ public class Program {
                         case 8:
                             Salvar.salvar();
                             break;
-                            
+                        case 0:
+                        	break;
                         default: {
                         	System.out.println("Digite um valor válido");
                         }
