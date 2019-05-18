@@ -1,13 +1,12 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import model.Aluno;
 import model.Curso;
 import model.Rendimento;
 
-public class Cadastro implements Iterable<Curso> {
+public class Cadastro {
 	
 	public static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 	public static ArrayList<Curso> cursos = new ArrayList<Curso>();
@@ -15,11 +14,6 @@ public class Cadastro implements Iterable<Curso> {
 	
 	public void add(Rendimento rendimento) {
 		rendimentos.add(rendimento);
-	}
-	
-	@Override
-	public Iterator<Curso> iterator() {
-		return  cursos.iterator();
 	}
 	
 	public static String listaCursos() {
