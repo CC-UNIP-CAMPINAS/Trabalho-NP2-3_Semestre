@@ -10,7 +10,6 @@ import model.Rendimento;
 public class Salvar {
 	public static void salvaCurso() {
 		String caminho = System.getProperty("user.dir");
-		caminho += File.separator + "trabalho-np2";
 		caminho += File.separator + "src";
 		caminho += File.separator + "dao";
 		caminho += File.separator + "cursos.csv";
@@ -30,7 +29,6 @@ public class Salvar {
 	
 	public static void salvaAluno() {
 		String caminho = System.getProperty("user.dir");
-		caminho += File.separator + "trabalho-np2";
 		caminho += File.separator + "src";
 		caminho += File.separator + "dao";
 		caminho += File.separator + "alunos.csv";
@@ -53,7 +51,6 @@ public class Salvar {
 	public static void salvaRendimento() {
 		for (Curso curso : Cadastro.cursos) {
 			String caminho = System.getProperty("user.dir");
-			caminho += File.separator + "trabalho-np2";
 			caminho += File.separator + "src";
 			caminho += File.separator + "dao";
 			caminho += File.separator + curso.toNomeArquivo();
