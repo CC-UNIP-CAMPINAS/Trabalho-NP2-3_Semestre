@@ -1,5 +1,11 @@
 # Trabalho-NP2-3_Semestre
 
+## Versão 2.8
+    
+    Foi adicionado métodos para não trabalhar diretamente com o add da ArrayList.
+    
+    Também foi cria o método fazEscolha na classe Menu.
+
 ## Versão 2.7.1
 
 Foi adicionado um controle de erros para adicionar cursos e alunos
