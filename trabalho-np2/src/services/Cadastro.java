@@ -2,9 +2,11 @@ package services;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import model.Aluno;
 import model.Curso;
@@ -13,7 +15,7 @@ import model.Rendimento;
 public class Cadastro {
 	
 	public static List<Aluno> alunos = new ArrayList<Aluno>();
-	public static List<Curso> cursos = new ArrayList<Curso>();
+	public static Set<Curso> cursos = new HashSet<>();
 	public static List<Rendimento> rendimentos = new ArrayList<Rendimento>();
 	public static Map<String, Aluno> idParaAluno = new HashMap<>();
 	

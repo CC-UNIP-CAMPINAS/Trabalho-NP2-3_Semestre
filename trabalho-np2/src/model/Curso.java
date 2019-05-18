@@ -71,4 +71,19 @@ public class Curso {
 				&& Boolean.compare(nivel, c.nivel) == 0
 				&& Integer.compare(ano, c.ano) == 0;
 	}
+	
+	@Override
+	public int hashCode() {
+		int ret = 0;
+		
+		for(int i = 0; i < nome.length(); i++)
+		{
+			ret += nome.codePointAt(i);
+		}
+		
+		ret += Integer.hashCode(ano);
+		
+		return ret;
+		
+	}
 }
