@@ -54,7 +54,9 @@ public class Curso {
 	
 	@Override
 	public String toString() {
-		return "\nNome: " + this.getNome() + "\nNivel: " + this.tipoGraduacao() + "\nAno: " + this.getAno();
+		return "\nNome: " + this.getNome() + 
+			   "\nNivel: " + this.tipoGraduacao() + 
+			   "\nAno: " + this.getAno();
 	}
 	
 	@Override

@@ -20,7 +20,8 @@ public class Aluno {
 	
 	@Override
 	public String toString() {
-		return "\nNome aluno: " + this.nome + "\nID aluno: " + this.id;
+		return "\nNome aluno: " + this.nome + 
+			   "\nID aluno: " + this.id;
 	}
 	
 	@Override

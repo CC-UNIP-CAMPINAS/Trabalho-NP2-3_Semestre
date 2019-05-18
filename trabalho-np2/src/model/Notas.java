@@ -14,7 +14,7 @@ public class Notas {
 	
 	@Override
 	public String toString() {
-		String a = Double.toString(getNota());
-		return a;
+		return Double.toString(getNota());
+
 	}
 }

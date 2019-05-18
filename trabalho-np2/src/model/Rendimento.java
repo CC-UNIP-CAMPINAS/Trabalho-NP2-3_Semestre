@@ -2,8 +2,8 @@ package model;
 public class Rendimento {
 	private Aluno aluno;
 	private Curso curso;
-	private Notas NP1;
-	private Notas NP2;
+	private Notas np1;
+	private Notas np2;
 	private Notas exame;
 	private Notas reposicao;
 	private Notas media;
@@ -13,8 +13,8 @@ public class Rendimento {
 
 		this.aluno = aluno;
 		this.curso = curso;
-		NP1 = new Notas(np1);
-		NP2 = new Notas(np2);
+		this.np1 = new Notas(np1);
+		this.np2 = new Notas(np2);
 		exame = new Notas(aExame);
 		reposicao = new Notas(rep);
 		media = new Notas(calculaMedia());
@@ -24,8 +24,8 @@ public class Rendimento {
 		
 		this.aluno = aluno;
 		this.curso = curso;
-		NP1 = new Notas(np1);
-		NP2 = new Notas(np2);
+		this.np1 = new Notas(np1);
+		this.np2 = new Notas(np2);
 		exame = new Notas(aExame);
 		reposicao = new Notas(rep);
 		media = new Notas(med);
@@ -33,11 +33,11 @@ public class Rendimento {
 	}
 	
 	public double getNP1() {
-		return NP1.getNota();
+		return np1.getNota();
 	}
 
 	public double getNP2() {
-		return NP2.getNota();
+		return np2.getNota();
 	}
 
 	public double getExame() {
@@ -73,10 +73,10 @@ public class Rendimento {
 	}
 	
 	public double calculaMedia() {
-		double media = (NP1.getNota() + NP2.getNota())/2;
-		if(reposicao.getNota() >= NP1.getNota() || reposicao.getNota() >= NP2.getNota()) {
-			if(NP1.getNota() >= NP2.getNota()) {
-				media = (NP1.getNota() + reposicao.getNota())/2.0;
+		double media = (np1.getNota() + np2.getNota())/2;
+		if(reposicao.getNota() >= np1.getNota() || reposicao.getNota() >= np2.getNota()) {
+			if(np1.getNota() >= np2.getNota()) {
+				media = (np1.getNota() + reposicao.getNota())/2.0;
 				if(curso.getNivel()) {
 					if(media >= 7.0) {
 						this.aprovado = true;
@@ -113,7 +113,7 @@ public class Rendimento {
 				}
 			}
 			else {
-				media = (NP2.getNota() + reposicao.getNota())/2.0;
+				media = (np2.getNota() + reposicao.getNota())/2.0;
 				if(curso.getNivel()) {
 					if(media >= 7.0) {
 						this.aprovado = true;
@@ -190,18 +190,13 @@ public class Rendimento {
 	
 	@Override
 	public String toString() {
-		String a = "NP1: " + NP1.toString() + 
-				   "\nNP2: " + NP2.toString() + 
-				   "\nExame: "+ exame.toString() + 
-				   "\nReposição: " + reposicao.toString() + 
-				   "\nMédia: " + media.toString();
-					if(aprovado) {
-						a += "\nAprovado: SIM\n";
-					}
-					else {
-						a += "\nAprovado: NÃO\n";
-					}
-		return a;
+		
+		return "NP1: " + this.np1 +
+			   "\nNP2: " + this.np2 +
+			   "\nExame: "+ this.exame +  	
+			   "\nReposição: " + this.reposicao + 
+			   "\nMédia: " + this.media +
+			   "\n" + ((this.aprovado) ? "Aprovado: SIM\n" : "Aprovado: NÃO\n");
 	}
 }
 

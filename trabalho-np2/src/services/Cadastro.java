@@ -73,20 +73,4 @@ public class Cadastro {
 		
 		return storage.toString();
 	}
-	
-	@Override
-	public String toString() {
-		StringBuilder storage = new StringBuilder();
-		
-		storage.append("\nAlunos");
-		storage.append(listaAlunos());
-		
-		storage.append("\nCursos");
-		storage.append(listaCursos());
-		
-		storage.append("\nRendimentos");
-		storage.append(listaRendimentos());
-		
-		return storage.toString();
-	}
 }
