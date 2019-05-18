@@ -16,17 +16,10 @@ public class Curso {
 		return nome;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
 	public int getAno() {
 		return ano;
 	}
 	
-	public void setAno(int ano) {
-		this.ano = ano;
-	}
 	public boolean getNivel() {
 		return nivel;
 	}
@@ -46,6 +39,12 @@ public class Curso {
 		else {
 			return "Pós Graduação";
 		}
+	}
+	
+	public boolean verificaNome(String nome) {
+		if(this.nome == nome) return true;
+		
+		return false;
 	}
 	
 	public String toNomeArquivo() {

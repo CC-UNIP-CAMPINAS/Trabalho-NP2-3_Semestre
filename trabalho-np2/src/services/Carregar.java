@@ -16,6 +16,7 @@ public class Carregar {
 		caminho += File.separator + "src";
 		caminho += File.separator + "dao";
 		caminho += File.separator + "cursos.csv";
+		
 		try(Scanner scanner = new Scanner(new File(caminho))) {
 			while(scanner.hasNextLine()) {
 				String linha = scanner.nextLine();
@@ -29,8 +30,8 @@ public class Carregar {
 				
 				linhaScanner.close();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Ocorreu um erro ao carregar os cursos: " + e.getMessage()); 
 		}
 	}
 	
@@ -50,8 +51,8 @@ public class Carregar {
 				
 				linhaScanner.close();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Ocorreu um erro ao carregar os alunos: " + e.getMessage()); 
 		}
 	}
 	

@@ -15,6 +15,5 @@ public class Notas {
 	@Override
 	public String toString() {
 		return Double.toString(getNota());
-
 	}
 }

@@ -32,7 +32,7 @@ public class Cadastro {
 	
 	public static Aluno buscaAluno(String id) {
 		if(!idParaAluno.containsKey(id))
-			throw new NoSuchElementException();
+			throw new NoSuchElementException("Não existe um aluno com o ID " + id);
 		return idParaAluno.get(id);
 	}
 	

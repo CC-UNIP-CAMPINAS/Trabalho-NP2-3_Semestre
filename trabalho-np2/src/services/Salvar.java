@@ -2,6 +2,7 @@ package services;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import model.Aluno;
 import model.Curso;
@@ -19,12 +20,14 @@ public class Salvar {
 	
 			if(arquivoCurso.exists()) arquivoCurso.delete();
 			
-			for(Curso curso : Cadastro.cursos) {
-				bwCurso.write(curso.getNome() + ";" + curso.getGraduacao() + ";" + curso.getAno() + "\n");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			for(Curso curso : Cadastro.cursos)
+				bwCurso.write(curso.getNome() + ";" + 
+				curso.getGraduacao() + ";" + 
+				curso.getAno() + "\n");
+			
+		} catch (IOException e) {
+			System.out.println("Ocorreu um erro ao salvar o arquivo cursos.csv: " + e.getMessage());
+		}	
 	}
 	
 	public static void salvaAluno() {
@@ -36,15 +39,14 @@ public class Salvar {
 		
 		try(BufferedWriter brAluno = new BufferedWriter(new FileWriter(arquivoAluno))) {
 			
-			if(arquivoAluno.exists()) {
-				arquivoAluno.delete();
-			}
-
-			for(Aluno aluno : Cadastro.alunos) {
-				brAluno.write(aluno.getId() + ";" + aluno.getNome() + "\n");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			if(arquivoAluno.exists()) arquivoAluno.delete();
+			
+			for(Aluno aluno : Cadastro.alunos)
+				brAluno.write(aluno.getId() + ";" + 
+				aluno.getNome() + "\n");
+			
+		} catch (IOException e) {
+			System.out.println("Ocorreu um erro ao salvar o arquivo alunos.csv: " + e.getMessage());
 		}	
 	}
 	
@@ -57,12 +59,10 @@ public class Salvar {
 			File arquivoRendimento = new File(caminho);
 			
 			try(BufferedWriter bwRendimento = new BufferedWriter(new FileWriter(arquivoRendimento))) {
-				if(arquivoRendimento.exists()) {
-					arquivoRendimento.delete();
-				}
+				if(arquivoRendimento.exists()) arquivoRendimento.delete();
 
-				for (Rendimento rendimento : Cadastro.rendimentos) {
-					if(curso.equals(rendimento.getCurso())) {
+				for (Rendimento rendimento : Cadastro.rendimentos)
+					if(curso.equals(rendimento.getCurso()))
 							bwRendimento.write(rendimento.getAluno().getId() + ";" + 
 								String.valueOf(rendimento.getNP1()) + ";" + 
 								String.valueOf(rendimento.getNP2()) + ";" + 
@@ -70,11 +70,10 @@ public class Salvar {
 								String.valueOf(rendimento.getExame()) + ";" +
 								String.valueOf(rendimento.getMedia()) + ";" +
 								String.valueOf(rendimento.getAprovado() + "\n"));
-					}
-				}			
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				
+			} catch (IOException e) {
+				System.out.println("Ocorreu um erro ao salvar um arquivo de rendimento: " + e.getMessage());
+			}	
 		}
 	}
 	
