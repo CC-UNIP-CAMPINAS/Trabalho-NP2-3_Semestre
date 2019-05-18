@@ -2,7 +2,7 @@ package model;
 public class Rendimento {
 	private Aluno aluno;
 	private Curso curso;
-	public Notas NP1;
+	private Notas NP1;
 	private Notas NP2;
 	private Notas exame;
 	private Notas reposicao;

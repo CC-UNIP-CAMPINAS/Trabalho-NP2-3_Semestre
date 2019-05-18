@@ -25,7 +25,7 @@ public class Carregar {
 				Curso curso = new Curso(linhaScanner.next(), 
 										linhaScanner.next().equalsIgnoreCase("graduacao"), 
 										linhaScanner.nextInt());
-				Cadastro.cursos.add(curso);
+				Cadastro.adicionaCurso(curso);
 				
 				linhaScanner.close();
 			}
@@ -46,7 +46,7 @@ public class Carregar {
 				
 				linhaScanner.useDelimiter(";");
 				Aluno aluno = new Aluno(linhaScanner.next(), linhaScanner.next());
-				Cadastro.alunos.add(aluno);
+				Cadastro.adicionaAluno(aluno);
 				
 				linhaScanner.close();
 			}
@@ -81,8 +81,7 @@ public static void carregaRendimento() {
 							rendimento.setAluno(aluno);
 						}						
 					}
-					
-					Cadastro.rendimentos.add(rendimento);
+					Cadastro.adicionaRendimento(rendimento);
 				}
 				brRendimento.close();
 			} catch (IOException e) {

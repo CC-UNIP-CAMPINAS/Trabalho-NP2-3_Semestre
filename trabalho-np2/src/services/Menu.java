@@ -42,13 +42,12 @@ public class Menu {
 				System.out.println("Insira um ID: \n");
 				id = leia.next();
 
-				for (Rendimento rendimento : Cadastro.rendimentos) {
-					if (rendimento.getAluno().getId().equals(id)) {
-						System.out.println(rendimento.getAluno());
-						System.out.println(rendimento.getCurso());
+				Aluno alunoBuscado = Cadastro.buscaAluno(id);
+				
+				Cadastro.rendimentos.forEach(rendimento -> {
+					if(rendimento.getAluno().equals(alunoBuscado)) {
 						System.out.println(rendimento);
-					}
-				}
+				}});
 				break;
 
 			case 4:
@@ -174,5 +173,4 @@ public class Menu {
 				System.out.println("Digite um valor válido");
 			}
 		}
-	}
-}
+}}
