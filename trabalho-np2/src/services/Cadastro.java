@@ -12,8 +12,12 @@ public class Cadastro {
 	public static ArrayList<Curso> cursos = new ArrayList<Curso>();
 	public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 	
-	public void add(Rendimento rendimento) {
-		rendimentos.add(rendimento);
+	public static void adicionaAluno(Aluno aluno) {
+		alunos.add(aluno);
+	}
+	
+	public static void adicionaCurso(Curso curso) {
+		cursos.add(curso);
 	}
 	
 	public static String listaCursos() {

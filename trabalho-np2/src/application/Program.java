@@ -93,7 +93,7 @@ public class Program {
 									break;
 								}
 							}    
-                            Cadastro.alunos.add(new Aluno(id, nomeAluno));
+                            Cadastro.adicionaAluno(new Aluno(id, nomeAluno));
                             break;
                             
                         case 6:
@@ -118,6 +118,7 @@ public class Program {
 									break;
 								}
 							}
+                        	Cadastro.adicionaCurso(novoCurso);
                         	
                             break;
                             
