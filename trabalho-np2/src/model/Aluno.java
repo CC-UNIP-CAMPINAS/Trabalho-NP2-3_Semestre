@@ -22,4 +22,16 @@ public class Aluno {
 	public String toString() {
 		return "\nNome aluno: " + this.nome + "\nID aluno: " + this.id;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		
+		if(o == this) return true;
+		
+		if(!(o instanceof Aluno)) return false;
+		
+		Aluno a = (Aluno) o;
+		
+		return id.equals(a.id);
+	}
 }

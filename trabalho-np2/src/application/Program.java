@@ -87,14 +87,19 @@ public class Program {
                             System.out.println("Insira um nome: \n");
                             nomeAluno = leia.next();
                             
-                            for (Aluno aluno : Cadastro.alunos) {
-								if(aluno.getId().equals(id)) {
-									System.out.println("Aluno já existente");
-									break;
-								}
-							}    
-                            Cadastro.adicionaAluno(new Aluno(id, nomeAluno));
+                            Aluno novoAluno = new Aluno(id, nomeAluno);
+                            
+                            if(Cadastro.alunos.contains(novoAluno)) {
+                            	System.out.println("ID já existente");
+                            }
+                            else {
+                                Cadastro.adicionaAluno(novoAluno);                            	
+                            }
+
                             break;
+
+                           
+                            
                             
                         case 6:
                         	String nomeCurso;
@@ -123,59 +128,47 @@ public class Program {
                             break;
                             
                         case 7:
-                        	
-                        	String idReposicao;
-                        	String nomeReposicao;
-                        	boolean nivelReposicao;
-                        	int anoReposicao;
-                        	
-                        	Aluno alunoBusca = null;
-                        	
-                        	double np1;
-                        	double np2;
-                        	double rep;
-                        	double exame;
-                        	
-                        	
                         	System.out.println("Entre com o ID do usuário: \n");
-                        	idReposicao = leia.next();
+                        	String idReposicao = leia.next();
                         	
                         	System.out.println("Entre com o nome do curso: \n");
-                        	nomeReposicao = leia.next();
+                        	String nomeReposicao = leia.next();
                         	
                         	System.out.println("Graduacao? true ou false: \n");
-                        	nivelReposicao = leia.nextBoolean();
+                        	boolean nivelReposicao = leia.nextBoolean();
                         	
                         	System.out.println("Entre com o ano do curso: \n");
-                        	anoReposicao = leia.nextInt();
+                        	int anoReposicao = leia.nextInt();
                         	
+                        	Aluno alunoBusca = new Aluno(idReposicao, nomeReposicao);
                         	Curso cursoBusca = new Curso(nomeReposicao, nivelReposicao, anoReposicao);
                         	
                         	for(Aluno aluno : Cadastro.alunos) {
-                        		if(aluno.getId().equals(String.valueOf(idReposicao))) {
+                        		if(aluno.equals(alunoBusca))
                         			alunoBusca = aluno;
-                        		}
                         	}
                         	
                         	for(Curso curso : Cadastro.cursos) {
-                        		if(curso.equals(cursoBusca)) {
+                        		if(curso.equals(cursoBusca))
                         			cursoBusca = curso;
-                        		}
                         	}
                         	
                         	System.out.println("Entre com a nota da NP1: \n");
-                        	np1 = leia.nextDouble();
+                        	double np1 = leia.nextDouble();
 
                         	System.out.println("Entre com a nota da NP2: \n");
-                        	np2 = leia.nextDouble();
+                        	double np2 = leia.nextDouble();
                         	
                         	System.out.println("Entre com a nota da reposição: \n");
-                        	rep = leia.nextDouble();
+                        	double rep = leia.nextDouble();
                         	
                         	System.out.println("Entre com a nota do exame: \n");
-                        	exame = leia.nextDouble();
+                        	double exame = leia.nextDouble();
                         	
-                        	Cadastro.rendimentos.add(new Rendimento(alunoBusca, cursoBusca, np1, np2, rep, exame));
+                        	Rendimento novoRendimento = new Rendimento(alunoBusca, cursoBusca, np1, np2, rep, exame);
+                        	
+                        	Cadastro.adicionaRendimento(novoRendimento);
+
                         	break;
 
                             
