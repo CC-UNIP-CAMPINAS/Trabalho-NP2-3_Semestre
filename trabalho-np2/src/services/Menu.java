@@ -7,7 +7,20 @@ import model.Aluno;
 import model.Curso;
 import model.Rendimento;
 
+
 public class Menu {
+	
+	enum Escolha{
+		SAIR,
+		LISTA_CURSO,
+		LISTA_ALUNOS,
+		LISTA_HISTORICO,
+		LISTA_RELATORIO,
+		INCLUIR_ALUNO,
+		INCLUIR_CURSO,
+		INCLUIR_RENDIMENTO,
+		SALVAR;
+	}
 
 	public static void mostraMenu() {
 		System.out.println();
@@ -27,8 +40,9 @@ public class Menu {
 		
 		int escolha = 0;
 		
-		try(Scanner leia = new Scanner(System.in)) {
+		Scanner leia = new Scanner(System.in);
 			do {
+				try {
 				mostraMenu();
 				
 				while (!leia.hasNextInt()) {
@@ -37,17 +51,18 @@ public class Menu {
 					mostraMenu();
 				}
 				escolha = leia.nextInt();
-
-				switch (escolha) {
-					case 1:
+				Escolha opcoes = Escolha.values()[escolha];
+				switch (opcoes) {
+					case LISTA_CURSO:
 						System.out.println(Cadastro.listaCursos());
 						break;
 	
-					case 2:
+					case LISTA_ALUNOS:
 						System.out.println(Cadastro.listaAlunos());
+						System.out.println("sad");
 						break;
 	
-					case 3:
+					case LISTA_HISTORICO:
 						String id;
 	
 						System.out.println("Insira um ID: \n");
@@ -62,16 +77,26 @@ public class Menu {
 						});
 						break;
 	
-					case 4:
+					case LISTA_RELATORIO:
 						String nome;
 						int aAno;
 						boolean nivel;
 	
 						System.out.println("Insira o nome do curso: \n");
 						nome = leia.next();
+						
 						System.out.println("Insira o ano: ");
+						if(!leia.hasNextInt()) {
+							String input = leia.next();
+							throw new NoSuchElementException(input + " não é um numero válido\n");
+						}
 						aAno = leia.nextInt();
-						System.out.println("Graduação (true ou false): ");
+						
+						System.out.println("Graduação (true ou false): ");									
+						if(!leia.hasNextBoolean()) {
+							String input = leia.next();
+							throw new NoSuchElementException(input + " não é um boolean válido\n");
+						}
 						nivel = leia.nextBoolean();
 	
 						Curso cursoTemp = new Curso(nome, nivel, aAno);
@@ -86,7 +111,7 @@ public class Menu {
 	
 						break;
 	
-					case 5:
+					case INCLUIR_ALUNO:
 						id = "";
 						String nomeAluno;
 	
@@ -106,7 +131,7 @@ public class Menu {
 	
 						break;
 	
-					case 6:
+					case INCLUIR_CURSO:
 						String nomeCurso;
 						boolean graduacao;
 						int ano;
@@ -115,9 +140,17 @@ public class Menu {
 						nomeCurso = leia.next();
 	
 						System.out.println("Graduação (true ou false): \n");
+						if(!leia.hasNextBoolean()) {
+							String input = leia.next();
+							throw new NoSuchElementException(input + " não é um boolean válido\n");
+						}
 						graduacao = leia.nextBoolean();
 	
 						System.out.println("Insira um ano: \n");
+						if(!leia.hasNextInt()) {
+							String input = leia.next();
+							throw new NoSuchElementException(input + " não é um numero válido\n");
+						}
 						ano = leia.nextInt();
 	
 						Curso novoCurso = new Curso(nomeCurso, graduacao, ano);
@@ -132,7 +165,7 @@ public class Menu {
 	
 						break;
 	
-					case 7:
+					case INCLUIR_RENDIMENTO:
 						
 						System.out.println("Entre com o ID do usuário: \n");
 						String idReposicao = leia.next();
@@ -185,18 +218,20 @@ public class Menu {
 						Cadastro.adicionaRendimento(novoRendimento);
 						break;
 	
-					case 8:
+					case SALVAR:
 						Salvar.salvar();
 						break;
-					case 0:
+					case SAIR:
 						break;
 					default: {
 						System.out.println("Digite um valor válido");
 					}
 				}
-			} while (escolha != 0);
-		} catch (NoSuchElementException e) {
-			System.out.println(e.getMessage());
-		}
+			}catch (NoSuchElementException e) {
+				System.out.println(e.getMessage());
+			}
+				
+		}  while (escolha != 0);
+			leia.close();
 	}
 }
