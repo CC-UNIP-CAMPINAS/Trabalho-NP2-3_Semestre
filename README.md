@@ -1,7 +1,10 @@
 # Trabalho-NP2-3_Semestre
 
 ## Versão 2.8
-    
+    Implementação do ENUM no menu
+	
+	Otimização do controle de erros do menu
+	
     Foi adicionado métodos para não trabalhar diretamente com o add da ArrayList.
     
     Também foi cria o método fazEscolha na classe Menu.
