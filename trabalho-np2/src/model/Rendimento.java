@@ -191,12 +191,14 @@ public class Rendimento {
 	@Override
 	public String toString() {
 		
-		return "NP1: " + this.np1 +
+		return "Notas: \n" +
+			   "NP1: " + this.np1 +
 			   "\nNP2: " + this.np2 +
 			   "\nExame: "+ this.exame +  	
 			   "\nReposição: " + this.reposicao + 
 			   "\nMédia: " + this.media +
-			   "\n" + ((this.aprovado) ? "Aprovado: SIM\n" : "Aprovado: NÃO\n");
+			   "\n" + ((this.aprovado) ? "Aprovado: SIM\n" : "Aprovado: NÃO\n") +
+			   "\n=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=\n";
 	}
 }
 

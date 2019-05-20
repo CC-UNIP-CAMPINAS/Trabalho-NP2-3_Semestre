@@ -40,22 +40,22 @@ public class Cadastro {
 	
 	public static String listaCursos() {
 		StringBuilder storage = new StringBuilder();
-
+		storage.append("\n=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=\n");
 		for(Curso curso : cursos) {
-			storage.append("\n"+curso);
+			storage.append("\n"+curso+"\n");
 		}
-		
+		storage.append("\n=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=");
 		return storage.toString();
 	}
 	
 	public static String listaAlunos() {
 		StringBuilder storage = new StringBuilder();
-
+		storage.append("\n=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=\n");
 		for(Aluno aluno : alunos) {
-			storage.append("\n"+aluno);
+			storage.append("\n"+aluno+"\n");
 
 		}
-		
+		storage.append("\n=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=");
 		return storage.toString();
 	}
 	

@@ -1,6 +1,13 @@
 # Trabalho-NP2-3_Semestre
+## Versão 2.9
+
+	Alterado o modelo de vizualização para tentar deixar mais legível.
+	
+	Adicionado um sistema que pergunta ao usuário se ele deseja voltar para o menu ou encerrar o programa, isso ajuda a não poluir a tela com vários menus a cada opção selecionada
+	
 
 ## Versão 2.8
+
     Implementação do ENUM no menu
 	
 	Otimização do controle de erros do menu

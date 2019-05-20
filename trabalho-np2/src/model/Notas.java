@@ -6,6 +6,13 @@ public class Notas {
 	
 	public Notas(double aNota) {
 		this.nota = aNota;
+		if(aNota >= 10) {
+			this.nota = 10;
+		}
+		if(aNota <= 0) {
+			this.nota = 0;
+		}
+		
 	}
 	
 	public double getNota() {
