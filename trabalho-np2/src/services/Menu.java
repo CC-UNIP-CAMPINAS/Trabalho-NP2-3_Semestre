@@ -52,6 +52,11 @@ public class Menu {
 					mostraMenu();
 				}
 				escolha = leia.nextInt();
+				while(escolha<0 || escolha>9) {
+					System.out.println("\n"+escolha +" não é uma opção válida!!\n");
+					mostraMenu();
+					escolha = leia.nextInt();
+				}
 				Escolha opcoes = Escolha.values()[escolha];
 				switch (opcoes) {
 					case LISTA_CURSO:
@@ -92,8 +97,9 @@ public class Menu {
 						int aAno;
 						boolean nivel;
 	
-						System.out.print("Insira o nome do curso: ");
-						nome = leia.next();
+						System.out.print("Insira o nome do curso: " + leia.nextLine());
+						nome = leia.nextLine
+								();
 						
 						System.out.print("Insira o ano: ");
 						if(!leia.hasNextInt()) {
@@ -114,7 +120,6 @@ public class Menu {
 						System.out.println("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 						System.out.println(cursoTemp + "\n");
 						System.out.println("Alunos que fizeram o curso: \n");
-				
 						
 						for (Rendimento rendimento : Cadastro.rendimentos) {
 							if (rendimento.getCurso().equals(cursoTemp)) {
@@ -128,13 +133,14 @@ public class Menu {
 	
 					case INCLUIR_ALUNO:
 						id = "";
-						String nomeAluno;
-	
+						String nomeAluno = "";
+						
 						System.out.print("Insira um ID: ");
 						id = leia.next();
-	
-						System.out.print("Insira um nome: ");
-						nomeAluno = leia.next();
+						System.out.print("Insira um nome: " +leia.nextLine());
+						nomeAluno = leia.nextLine();
+						
+						
 	
 						Aluno novoAluno = new Aluno(id, nomeAluno);
 	
@@ -149,12 +155,12 @@ public class Menu {
 						break;
 	
 					case INCLUIR_CURSO:
-						String nomeCurso;
+						String nomeCurso = "";
 						boolean graduacao;
 						int ano;
 	
-						System.out.print("Insira um nome: ");
-						nomeCurso = leia.next();
+						System.out.print("Insira um nome: " + leia.nextLine());
+						nomeCurso = leia.nextLine();
 	
 						System.out.print("Graduação (true ou false): ");
 						if(!leia.hasNextBoolean()) {
@@ -191,10 +197,8 @@ public class Menu {
 	
 						Cadastro.buscaAluno(idReposicao);
 						
-						System.out.print("Entre com o nome do curso: ");
-						String nomeReposicao = leia.next();						
-	
-						Aluno alunoBusca = new Aluno(idReposicao, nomeReposicao);
+						System.out.print("Entre com o nome do curso: " + leia.nextLine());
+						String nomeReposicao = leia.nextLine();						
 						
 						
 						System.out.print("Graduacao? true ou false: ");
@@ -215,10 +219,6 @@ public class Menu {
 						
 						
 	
-						for (Curso curso : Cadastro.cursos) {
-							if (curso.equals(cursoBusca))
-								cursoBusca = curso;
-						}
 	
 						System.out.print("Entre com a nota da NP1: ");
 						double np1 = leia.nextDouble();
@@ -231,10 +231,15 @@ public class Menu {
 	
 						System.out.print("Entre com a nota do exame: ");
 						double exame = leia.nextDouble();
-	
-						Rendimento novoRendimento = new Rendimento(alunoBusca, cursoBusca, np1, np2, rep, exame);
-	
-						Cadastro.adicionaRendimento(novoRendimento);
+						
+						Rendimento novoRendimento = new Rendimento(Cadastro.buscaAluno(idReposicao), cursoBusca, np1, np2, rep, exame);
+						if (Cadastro.rendimentos.contains(novoRendimento) || !(Cadastro.cursos.contains(cursoBusca))) {
+							System.out.println("\nRendimento já existente ou o curso não existe!!");
+						} else {
+							Cadastro.adicionaRendimento(novoRendimento);
+							System.out.println("\nRendimento criado com sucesso!!\n");
+						}
+						
 						System.out.print("\nDeseja voltar ao menu? 1=Sim 0=Não: ");
 						escolha = leia.nextInt();
 						break;
@@ -246,10 +251,10 @@ public class Menu {
 					case SAIR:
 						System.out.println("\nPrograma encerrado!!");
 						break;
-					default: {
-						System.out.println("Digite um valor válido");
+					default:
+						System.out.println("Número errado");
 						break;
-					}
+				
 				}
 			}catch (NoSuchElementException e) {
 				System.out.println(e.getMessage());
